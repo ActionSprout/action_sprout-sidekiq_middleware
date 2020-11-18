@@ -53,14 +53,14 @@ using in production.
 
 #### Release a new Version
 
-Update the version number in `lib/action_sprout/sidekiq_middleware/version.rb` and make you final version change commit.
+Update the version number in `lib/action_sprout/sidekiq_middleware/version.rb` and make your final version change commit.
 Create a release tag with `gem_push=no rake release`.
 
-Make sure you have the git remote `fury` added (can be called anything).
+Make sure you have the git remote `fury` added. See the [Gemfury docs](https://manage.fury.io/dashboard/actionsprout/repos/ruby/push) for more information.
 
     $ git remote add fury https://PASSWORD@repo.fury.io/ORGANIZATION/
 
 
-To release the new verison we push to our Gemfury repo.
+To release the new verison we push to our Gemfury repo. Gemfury requires we update their `master` ref.
 
-    $ git push fury master
+    $ git push fury main:master
