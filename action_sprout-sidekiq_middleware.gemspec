@@ -6,8 +6,8 @@ require 'action_sprout/sidekiq_middleware/version'
 Gem::Specification.new do |spec|
   spec.name          = 'action_sprout-sidekiq_middleware'
   spec.version       = ActionSprout::SidekiqMiddleware::VERSION
-  spec.authors       = ['Amiel Martin']
-  spec.email         = ['amiel@actionsprout.com']
+  spec.authors       = ['Bryan Powell']
+  spec.email         = ['bryan@bryanp.org']
 
   spec.summary       = %q{ActionSprout Sidekiq Middleware}
   spec.description   = %q{This gem includes various Sidekiq Middleware used at ActionSprout.}
