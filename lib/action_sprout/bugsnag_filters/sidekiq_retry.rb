@@ -36,7 +36,7 @@ module ActionSprout
 
       def min_retry_count
         case retry_setting
-        when 1..10 then 1
+        when 1...9 then retry_setting
         when 10..Float::INFINITY, true then 2
         else 0
         end

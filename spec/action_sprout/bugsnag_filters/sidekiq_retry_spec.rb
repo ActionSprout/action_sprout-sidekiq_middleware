@@ -90,6 +90,12 @@ RSpec.describe ActionSprout::BugsnagFilters::SidekiqRetry, '.call' do
   context 'with a low retry sidekiq job on its second failure' do
     let(:retry_setting) { 3 }
     let(:retry_count) { 1 }
+    include_examples 'ignores the notification'
+  end
+
+  context 'with a low retry sidekiq job on its last failure' do
+    let(:retry_setting) { 3 }
+    let(:retry_count) { 3 }
     include_examples 'does not ignore the notification'
   end
 
