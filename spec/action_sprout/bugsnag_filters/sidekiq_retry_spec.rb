@@ -43,11 +43,16 @@ RSpec.describe ActionSprout::BugsnagFilters::SidekiqRetry, '.call' do
 
   context 'with a default sidekiq job that is on its third failure' do
     let(:retry_count) { 2 }
+    include_examples 'ignores the notification'
+  end
+
+  context 'with a default sidekiq job that is on its ninth failure' do
+    let(:retry_count) { 9 }
     include_examples 'does not ignore the notification'
   end
 
-  context 'with a default sidekiq job that is on its third failure' do
-    let(:retry_count) { 2 }
+  context 'with a default sidekiq job that is on its tenth failure' do
+    let(:retry_count) { 10 }
     include_examples 'does not ignore the notification'
   end
 
@@ -78,6 +83,12 @@ RSpec.describe ActionSprout::BugsnagFilters::SidekiqRetry, '.call' do
   context 'with a retry sidekiq job on its third failure' do
     let(:retry_setting) { true }
     let(:retry_count) { 2 }
+    include_examples 'ignores the notification'
+  end
+
+  context 'with a retry sidekiq job on its ninth failure' do
+    let(:retry_setting) { true }
+    let(:retry_count) { 9 }
     include_examples 'does not ignore the notification'
   end
 
@@ -102,6 +113,12 @@ RSpec.describe ActionSprout::BugsnagFilters::SidekiqRetry, '.call' do
   context 'with a high retry sidekiq job on its third failure' do
     let(:retry_setting) { 11 }
     let(:retry_count) { 2 }
+    include_examples 'ignores the notification'
+  end
+
+  context 'with a high retry sidekiq job on its ninth failure' do
+    let(:retry_setting) { 11 }
+    let(:retry_count) { 9 }
     include_examples 'does not ignore the notification'
   end
 
